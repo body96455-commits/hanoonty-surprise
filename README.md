@@ -1,1 +1,298 @@
-# hanoonty-surprise
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>هانونتي ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #fff0f5;
+  font-family: 'Cairo', sans-serif;
+  background: radial-gradient(circle at 50% 15%, #641b38, #321020 48%, #16070e);
+  overflow-x: hidden;
+}
+
+main {
+  width: min(920px, 92%);
+  margin: auto;
+  padding: 34px 0 110px;
+}
+
+section {
+  display: none;
+  animation: rise 0.8s ease both;
+}
+
+section.active {
+  display: block;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.brand {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(2.5rem, 9vw, 5rem);
+  letter-spacing: 4px;
+  color: #ffd2e1;
+  text-shadow: 0 0 24px #ff7eaa66;
+  margin: 0;
+}
+
+.sub {
+  color: #f3b9cc;
+  letter-spacing: 2px;
+}
+
+.envelope-wrap {
+  min-height: 75vh;
+  display: grid;
+  place-items: center;
+}
+
+.envelope {
+  width: min(330px, 82vw);
+  height: 220px;
+  position: relative;
+  border: 1px solid #ffb4ce88;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #721d3d, #3a1024);
+  box-shadow: 0 20px 70px #0008, 0 0 35px #ff6e9a25;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, transparent 49.5%, #f5a8c4aa 50%, transparent 50.5%),
+    linear-gradient(225deg, transparent 49.5%, #f5a8c4aa 50%, transparent 50.5%);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.heart {
+  position: relative;
+  z-index: 2;
+  border: 0;
+  background: #ffe1eb;
+  color: #9b234b;
+  border-radius: 50%;
+  width: 76px;
+  height: 76px;
+  font-size: 34px;
+  box-shadow: 0 0 28px #ff9abb99;
+  cursor: pointer;
+}
+
+.hint {
+  margin-top: 26px;
+  color: #f5c4d5;
+}
+
+.panel {
+  background: #fff9fc0d;
+  border: 1px solid #ffb4ce55;
+  border-radius: 24px;
+  padding: clamp(20px, 5vw, 38px);
+  box-shadow: 0 18px 50px #0004;
+  margin: 22px auto;
+}
+
+input {
+  width: min(330px, 100%);
+  padding: 14px 16px;
+  border-radius: 30px;
+  border: 1px solid #ff9abb88;
+  background: #1b0710;
+  color: #ffffff;
+  text-align: center;
+  font: inherit;
+  display: block;
+  margin: 16px auto 0;
+}
+
+button.action {
+  border: 1px solid #ffc0d5aa;
+  border-radius: 30px;
+  background: linear-gradient(120deg, #a52b58, #6b1739);
+  color: #ffffff;
+  padding: 12px 30px;
+  font: 600 1rem 'Cairo';
+  cursor: pointer;
+  margin: 16px 5px;
+}
+
+.message,
+.final {
+  font-size: clamp(1.05rem, 3vw, 1.35rem);
+  line-height: 2.2;
+  white-space: pre-line;
+  text-align: center;
+}
+
+.love {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffd2e1;
+  margin: 16px 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid #ffb4ce55;
+  display: block;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.date {
+  border: 1px solid #ffb4ce55;
+  background: #ffffff0b;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+}
+
+.error {
+  color: #ff9ab8;
+  margin-top: 10px;
+  min-height: 24px;
+}
+
+.note {
+  color: #f3b9cc;
+  margin-top: 18px;
+}
+
+.player {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #260b18e6;
+  border: 1px solid #ffb4ce66;
+  border-radius: 40px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 20;
+}
+
+.player audio {
+  height: 32px;
+  max-width: 210px;
+}
+</style>
+</head>
+<body>
+<main>
+
+  <section id="intro" class="active">
+    <div class="envelope-wrap">
+      <div class="center">
+        <div class="envelope" onclick="showLogin()">
+          <button type="button" class="heart" aria-label="افتح">♡</button>
+        </div>
+        <p class="hint">اضغطي على الظرف عشان نبدأ ♡</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="login">
+    <div class="center">
+      <h1 class="brand">Hanoonty</h1>
+      <p class="sub">اكتبي الباسورد عشان تفتحي المفاجأة</p>
+    </div>
+    <div class="panel center">
+      <input type="password" id="pass" placeholder="اكتبي الباسورد هنا">
+      <p id="error" class="error"></p>
+      <button type="button" class="action" onclick="unlock()">افتحي ♡</button>
+    </div>
+  </section>
+
+  <section id="letter">
+    <div class="center">
+      <h1 class="brand">My Love</h1>
+    </div>
+    <div class="panel">
+      <p id="typed" class="message"></p>
+    </div>
+    <div class="center">
+      <button type="button" id="continue" class="action" style="display: none;" onclick="go('dates')">كمّلي يا حنونتي ♡</button>
+    </div>
+  </section>
+
+  <section id="dates">
+    <div class="center">
+      <h1 class="brand">Our Dates</h1>
+      <p class="sub">كل تاريخ فيهم ليه حكاية في قلبي</p>
+    </div>
+    <div class="dates">
+      <div class="date">
+        أول يوم اتكلمنا فيه<br>
+        <strong>17/3/2026</strong>
+      </div>
+      <div class="date">
+        اليوم اللي قلت لك فيه بحبك<br>
+        <strong>25/4/2026</strong>
+      </div>
+      <div class="date">
+        أول مرة شوفتك<br>
+        <strong>26/5/2026</strong>
+      </div>
+    </div>
+    <div class="center">
+      <button type="button" class="action" onclick="go('photos')">شوفي صورنا ♡</button>
+    </div>
+  </section>
+
+  <section id="photos">
+    <div class="center">
+      <h1 class="brand">ذكرياتنا</h1>
+      <p class="sub">لحظات بحب أحتفظ بيها</p>
+    </div>
+    <div class="gallery">
+      <img src="photo1.jpg" alt="صورتنا الأولى">
+      <img src="photo2.jpg"
+      # hanoonty-surprise
