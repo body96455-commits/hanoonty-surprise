@@ -1,260 +1,385 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HANONTY ♡</title>
+<title>هانونتي ♡</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap');
 
-*{box-sizing:border-box}
-body{
- margin:0;min-height:100vh;color:#fff0f5;
- font-family:'Cairo',sans-serif;
- background:radial-gradient(circle at 50% 15%,#641b38,#321020 48%,#16070e);
- overflow-x:hidden;
+* {
+  box-sizing: border-box;
 }
-main{width:min(920px,92%);margin:auto;padding:34px 0 100px}
-section{display:none;animation:rise .8s ease both}
-section.active{display:block}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.center{text-align:center}
-.brand{
- font-family:'Playfair Display',serif;font-style:italic;
- font-size:clamp(2.5rem,9vw,5rem);letter-spacing:4px;
- color:#ffd2e1;text-shadow:0 0 24px #ff7eaa66;margin:0;
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #fff0f5;
+  font-family: 'Cairo', sans-serif;
+  background: radial-gradient(circle at 50% 15%, #641b38, #321020 48%, #16070e);
+  overflow-x: hidden;
 }
-.sub{color:#f3b9cc;letter-spacing:2px}
-.envelope-wrap{min-height:75vh;display:grid;place-items:center}
-.envelope{
- width:min(330px,82vw);height:220px;position:relative;
- border:1px solid #ffb4ce88;border-radius:12px;
- background:linear-gradient(145deg,#721d3d,#3a1024);
- box-shadow:0 20px 70px #0008,0 0 35px #ff6e9a25;
- display:grid;place-items:center;cursor:pointer;
+
+main {
+  width: min(920px, 92%);
+  margin: auto;
+  padding: 34px 0 110px;
 }
-.envelope:before{
- content:"";position:absolute;inset:0;
- background:linear-gradient(135deg,transparent 49.5%,#f5a8c4aa 50%,transparent 50.5%),
- linear-gradient(225deg,transparent 49.5%,#f5a8c4aa 50%,transparent 50.5%);
- border-radius:12px;
+
+section {
+  display: none;
+  animation: rise 0.8s ease both;
 }
-.heart{
- position:relative;z-index:2;border:0;background:#ffe1eb;
- color:#9b234b;border-radius:50%;width:76px;height:76px;
- font-size:34px;box-shadow:0 0 28px #ff9abb99;cursor:pointer;
+
+section.active {
+  display: block;
 }
-.hint{margin-top:26px;color:#f5c4d5}
-.panel{
- background:#fff9fc0d;border:1px solid #ffb4ce55;
- border-radius:24px;padding:clamp(20px,5vw,38px);
- box-shadow:0 18px 50px #0004;margin:22px auto;
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
-input{
- width:min(330px,100%);padding:14px 16px;border-radius:30px;
- border:1px solid #ff9abb88;background:#1b0710;
- color:white;text-align:center;font:inherit;
+
+.center {
+  text-align: center;
 }
-button.action{
- border:1px solid #ffc0d5aa;border-radius:30px;
- background:linear-gradient(120deg,#a52b58,#6b1739);
- color:white;padding:12px 30px;font:600 1rem 'Cairo';
- cursor:pointer;margin:16px 5px;
+
+.brand {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(2.5rem, 9vw, 5rem);
+  letter-spacing: 4px;
+  color: #ffd2e1;
+  text-shadow: 0 0 24px #ff7eaa66;
+  margin: 0;
 }
-.message{
- font-size:clamp(1.05rem,3vw,1.35rem);
- line-height:2.2;white-space:pre-wrap;text-align:center;
+
+.sub {
+  color: #f3b9cc;
+  letter-spacing: 2px;
 }
-.dates{
- display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
- gap:14px;margin-top:24px;
+
+.envelope-wrap {
+  min-height: 75vh;
+  display: grid;
+  place-items: center;
 }
-.date{
- border:1px solid #ffb4ce55;background:#ffffff0b;
- border-radius:18px;padding:20px;
+
+.envelope {
+  width: min(330px, 82vw);
+  height: 220px;
+  position: relative;
+  border: 1px solid #ffb4ce88;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #721d3d, #3a1024);
+  box-shadow: 0 20px 70px #0008, 0 0 35px #ff6e9a25;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
 }
-.date strong{
- display:block;color:#ffb5ce;font-size:1.35rem;
- margin-top:8px;direction:ltr;
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, transparent 49.5%, #f5a8c4aa 50%, transparent 50.5%),
+    linear-gradient(225deg, transparent 49.5%, #f5a8c4aa 50%, transparent 50.5%);
+  border-radius: 12px;
+  pointer-events: none;
 }
-.gallery{
- display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
- gap:16px;margin-top:24px;
+
+.heart {
+  position: relative;
+  z-index: 2;
+  border: 0;
+  background: #ffe1eb;
+  color: #9b234b;
+  border-radius: 50%;
+  width: 76px;
+  height: 76px;
+  font-size: 34px;
+  box-shadow: 0 0 28px #ff9abb99;
+  cursor: pointer;
 }
-.gallery img{
- width:100%;height:310px;object-fit:cover;
- border-radius:18px;border:1px solid #ffb4ce88;
+
+.hint {
+  margin-top: 26px;
+  color: #f5c4d5;
 }
-.note{color:#f4bfd1;font-size:.95rem}
-.final{font-size:clamp(1.4rem,4vw,2rem);line-height:2}
-.love{
- font-family:'Playfair Display',serif;font-style:italic;
- font-size:2.2rem;letter-spacing:3px;color:#ffd2e1;
+
+.panel {
+  background: #fff9fc0d;
+  border: 1px solid #ffb4ce55;
+  border-radius: 24px;
+  padding: clamp(20px, 5vw, 38px);
+  box-shadow: 0 18px 50px #0004;
+  margin: 22px auto;
 }
-.player{
- position:fixed;bottom:0;left:0;right:0;padding:10px 16px;
- background:#17060de8;border-top:1px solid #ff9abb55;
- display:flex;justify-content:center;align-items:center;
- gap:12px;z-index:5;color:#f7c4d5;font-size:.9rem;
+
+input {
+  width: min(330px, 100%);
+  padding: 14px 16px;
+  border-radius: 30px;
+  border: 1px solid #ff9abb88;
+  background: #1b0710;
+  color: #ffffff;
+  text-align: center;
+  font: inherit;
+  display: block;
+  margin: 16px auto 0;
 }
-audio{width:min(330px,55vw);height:34px}
-.err{color:#ffc2d5;min-height:24px}
+
+button.action {
+  border: 1px solid #ffc0d5aa;
+  border-radius: 30px;
+  background: linear-gradient(120deg, #a52b58, #6b1739);
+  color: #ffffff;
+  padding: 12px 30px;
+  font: 600 1rem 'Cairo';
+  cursor: pointer;
+  margin: 16px 5px;
+}
+
+.message,
+.final {
+  font-size: clamp(1.05rem, 3vw, 1.35rem);
+  line-height: 2.2;
+  white-space: pre-line;
+  text-align: center;
+}
+
+.love {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffd2e1;
+  margin: 16px 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid #ffb4ce55;
+  display: block;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.date {
+  border: 1px solid #ffb4ce55;
+  background: #ffffff0b;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+}
+
+.error {
+  color: #ff9ab8;
+  margin-top: 10px;
+  min-height: 24px;
+}
+
+.note {
+  color: #f3b9cc;
+  margin-top: 18px;
+}
+
+.player {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #260b18e6;
+  border: 1px solid #ffb4ce66;
+  border-radius: 40px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 20;
+}
+
+.player audio {
+  height: 32px;
+  max-width: 210px;
+}
 </style>
 </head>
-
 <body>
 <main>
 
-<section id="welcome" class="active center">
- <div class="envelope-wrap">
-  <div>
-   <p class="sub">A LITTLE SURPRISE FOR YOU</p>
-   <h1 class="brand">HANONTY</h1>
-   <div class="envelope" onclick="showLogin()">
-    <button class="heart">♥</button>
-   </div>
-   <p class="hint">اضغطي على القلب يا حنونتي ♡</p>
-  </div>
- </div>
-</section>
+  <section id="intro" class="active">
+    <div class="envelope-wrap">
+      <div class="center">
+        <div class="envelope" onclick="showLogin()">
+          <button type="button" class="heart" aria-label="افتح">♡</button>
+        </div>
+        <p class="hint">اضغطي على الظرف عشان نبدأ ♡</p>
+      </div>
+    </div>
+  </section>
 
-<section id="login" class="center">
- <div class="panel">
-  <h2>الرسالة دي ليكي وحدك ♡</h2>
-  <p>اكتبي الباسورد عشان تفتحي المفاجأة</p>
-  <input id="pass" type="password" placeholder="الباسورد">
-  <div>
-   <button class="action" onclick="unlock()">افتحي الرسالة ♥</button>
-  </div>
-  <p id="error" class="err"></p>
- </div>
-</section>
+  <section id="login">
+    <div class="center">
+      <h1 class="brand">Hanoonty</h1>
+      <p class="sub">اكتبي الباسورد عشان تفتحي المفاجأة</p>
+    </div>
+    <div class="panel center">
+      <input type="password" id="pass" placeholder="اكتبي الباسورد هنا">
+      <p id="error" class="error"></p>
+      <button type="button" class="action" onclick="unlock()">افتحي ♡</button>
+    </div>
+  </section>
 
-<section id="letter">
- <div class="center">
-  <p class="sub">FROM MY HEART TO YOURS</p>
-  <h1 class="brand">My Hanoon</h1>
- </div>
- <div class="panel">
-  <p id="typed" class="message"></p>
-  <div class="center">
-   <button id="continue" class="action" style="display:none"
-   onclick="go('memories')">كمّلي ♡</button>
-  </div>
- </div>
-</section>
+  <section id="letter">
+    <div class="center">
+      <h1 class="brand">My Love</h1>
+    </div>
+    <div class="panel">
+      <p id="typed" class="message"></p>
+    </div>
+    <div class="center">
+      <button type="button" id="continue" class="action" style="display: none;" onclick="go('dates')">كمّلي يا حنونتي ♡</button>
+    </div>
+  </section>
 
-<section id="memories">
- <div class="center">
-  <h1 class="brand">Our Little Story</h1>
-  <p class="sub">كل تاريخ فيهم ليه حكاية في قلبي</p>
- </div>
- <div class="dates">
-  <div class="date">أول يوم اتكلمنا فيه
-   <strong>17 / 3 / 2026</strong>
-  </div>
-  <div class="date">اليوم اللي قولتلك فيه بحبك
-   <strong>25 / 4 / 2026</strong>
-  </div>
-  <div class="date">أول مرة شوفتك
-   <strong>26 / 5 / 2026</strong>
-  </div>
- </div>
- <div class="center">
-  <button class="action" onclick="go('photos')">شوفي صورنا ♡</button>
- </div>
-</section>
+  <section id="dates">
+    <div class="center">
+      <h1 class="brand">Our Dates</h1>
+      <p class="sub">كل تاريخ فيهم ليه حكاية في قلبي</p>
+    </div>
+    <div class="dates">
+      <div class="date">
+        أول يوم اتكلمنا فيه<br>
+        <strong>17/3/2026</strong>
+      </div>
+      <div class="date">
+        اليوم اللي قلت لك فيه بحبك<br>
+        <strong>25/4/2026</strong>
+      </div>
+      <div class="date">
+        أول مرة شوفتك<br>
+        <strong>26/5/2026</strong>
+      </div>
+    </div>
+    <div class="center">
+      <button type="button" class="action" onclick="go('photos')">شوفي صورنا ♡</button>
+    </div>
+  </section>
 
-<section id="photos">
- <div class="center">
-  <h1 class="brand">Our Memories</h1>
-  <p class="sub">لحظات بحب أحتفظ بيها</p>
- </div>
- <div class="gallery">
-  <img src="photo1.jpg" alt="صورتنا الأولى">
- </div>
- <p class="note center">وباقي الصور نقدر نضيفها بعدين.</p>
- <div class="center">
-  <button class="action" onclick="go('second')">كمّلي يا حنونتي ♡</button>
- </div>
-</section>
+  <section id="photos">
+    <div class="center">
+      <h1 class="brand">ذكرياتنا</h1>
+      <p class="sub">لحظات بحب أحتفظ بيها</p>
+    </div>
+    <div class="gallery">
+      <img src="photo1.jpg" alt="صورتنا الأولى">
+      <img src="photo2.jpg" alt="صورتنا الثانية">
+    </div>
+    <p class="note center">وباقي الصور نكملها بعدين.</p>
+    <div class="center">
+      <button type="button" class="action" onclick="go('second')">كمّلي يا حنونتي ♡</button>
+    </div>
+  </section>
 
-<section id="second">
- <div class="center">
-  <h1 class="brand">Always With You</h1>
- </div>
- <div class="panel">
-  <p class="message">عارف انك اليومين دول ربنا يعينك انتي مش مستحمله ده غير المشاكل الي أنا عملتهالك فا عشان كدا أنا ركنت الزعل علي جنب عشان أنا وعدك اكون جنبك وسندك🤍 وهفضل جنبك وسندك يمكن انتي مصدقتنيش بس انا فعلا بكره الايام الي مش بنتكلم فيها بحس أن فيه حاجة نقصاني جامد وعلطول واحشاني💗🌎 عشان كدا عايزين اي خناق تاني نبطل حوار البلوكات ده بعد اذنك أنا عارف اني أنا بدأتها المره الي فاتت بس خلاص حصل خير المهم اننا في الاخر مع بعض احنا عدينا ب الاصعب من كدا اخر حاجة ربنا يديمك في حياتي يا حبيبتي ومشوفش فيكي حاجة وحشة يارب ويخليكي ليا يا حنونتي ❣️🫶</p>
- </div>
- <div class="center">
-  <button class="action" onclick="go('ending')">آخر حاجة ♡</button>
- </div>
-</section>
+  <section id="second">
+    <div class="center">
+      <h1 class="brand">دائماً معك</h1>
+    </div>
+    <div class="panel">
+      <p class="message">إنك يوم ربنا يعينك انتي مش مستحمله ده غير المشاكل الي أنا عملتهالك فا كدا أنا ركنت الزعل علي جنب وأنا وعدك فإني جنبك وسندك 🤍 وهفضل جنبك وسندك يمكن انتي مصدقتنيش بس انا فعلا بكره الأيام الي مش بنتكلم فيها بحس أن فيه حاجة نقصاني جامد وعلطول واحشاني 💗🌎 مش عايزين أي خناق تاني نبطل حوار البلوكات المهم ده بعد اذنك انا بدأتها المره الي فاتت بس خلاص حصل خير اننا في الاخر مع بعض احنا عدينا بالأصعب من كدا اخر حاجة ربنا يديمك في حياتي يا حبيبتي ومشوفش فيكي حاجة وحشة يارب ويخليكي ليا يا حنونتي ❣️🫶</p>
+    </div>
+    <div class="center">
+      <button type="button" class="action" onclick="go('ending')">آخر حاجة ♡</button>
+    </div>
+  </section>
 
-<section id="ending" class="center">
- <div class="panel">
-  <p class="final">لسه مكملين يا حبيبتي، كل يوم حكاية جديدة معاكي، وكل حكاية أجمل من اللي قبلها ❤️</p>
-  <p class="love">I LOVE YOU ♡</p>
-  <p class="sub">With Love, Always</p>
- </div>
-</section>
+  <section id="ending" class="center">
+    <div class="panel">
+      <p class="final">لسه مكملين يا حبيبتي، كل يوم حكاية جديدة معاكي، وكل حكاية أجمل من اللي قبلها ❤️</p>
+      <p class="love">أحبك ♡</p>
+      <p class="sub">مع حبي، دائماً</p>
+    </div>
+  </section>
 
 </main>
 
 <div class="player">
- <span>♫ أغنيتنا</span>
- <audio id="song" controls loop preload="auto">
-  <source src="song.mp3" type="audio/mpeg">
- </audio>
+  <span>♫ أغنيتنا</span>
+  <audio id="song" controls loop preload="auto">
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
 </div>
 
 <script>
 const PASSWORD = "1732026";
 
-const firstMessage = "أنا عارف انك زعلانة مني لسه🙂 ويمكن اول مره نطول كدا وعارف انك بتدايقي لما بنقعد مبنتكلمش بس غصب عني انشغلت ومن حقكك تزعلي بس انا وعدك أني هحاول عشانك تاني وتالت ورابع عشان مليش غيرك ❣️🌎 ربنا يخليكي ليا ويديمك في حياتي يا نور عيني ♥️😍 بحبكككك🫂💗";
+const firstMessage = "أنا أعرف إنك زعلانة مني لسه🙂 واول مره نطول كدا وعارف انك بتدايقي لما بنقعد مبنتكلمش بس غصب عني انشغلت ومن حقك تزعلي بس انا وعدك اني هحاول أرضيكي تاني وتالت ورابع لذلك مليش غيرك ❣️🌎 ربنا يخليك ليا ويديمك في حياتي يا نور عيني ♥ بحبكككك🫂💗";
 
-function go(id){
- document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- window.scrollTo({top:0,behavior:'smooth'});
+function go(id) {
+  document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function showLogin(){go('login');}
-
-function unlock(){
- const value=document.getElementById('pass').value;
- if(value!==PASSWORD){
-  document.getElementById('error').textContent='الباسورد مش صحيح، جربي تاني ♡';
-  return;
- }
- const audio=document.getElementById('song');
- audio.play().catch(()=>{});
- go('letter');
- typeWords();
+function showLogin() {
+  go('login');
 }
 
-let typingStarted=false;
-
-function typeWords(){
- if(typingStarted)return;
- typingStarted=true;
- const words=firstMessage.split(' ');
- let i=0;
- const target=document.getElementById('typed');
-
- const timer=setInterval(()=>{
-  target.textContent+=(i===0?'':' ')+words[i];
-  i++;
-  if(i>=words.length){
-   clearInterval(timer);
-   document.getElementById('continue').style.display='inline-block';
+function unlock() {
+  const value = document.getElementById('pass').value.trim();
+  if (value !== PASSWORD) {
+    document.getElementById('error').textContent = 'الباسورد مش صحيح، جربي تاني ♡';
+    return;
   }
- },260);
+  document.getElementById('error').textContent = '';
+  const audio = document.getElementById('song');
+  audio.play().catch(() => {});
+  go('letter');
+  typeWords();
 }
 
-document.getElementById('pass').addEventListener('keydown',e=>{
- if(e.key==='Enter')unlock();
+let typingStarted = false;
+
+function typeWords() {
+  if (typingStarted) return;
+  typingStarted = true;
+  const words = firstMessage.split(' ');
+  let i = 0;
+  const target = document.getElementById('typed');
+
+  const timer = setInterval(() => {
+    target.textContent += (i === 0 ? '' : ' ') + words[i];
+    i++;
+    if (i >= words.length) {
+      clearInterval(timer);
+      document.getElementById('continue').style.display = 'inline-block';
+    }
+  }, 260);
+}
+
+document.getElementById('pass').addEventListener('keydown', e => {
+  if (e.key === 'Enter') unlock();
 });
 </script>
 </body>
